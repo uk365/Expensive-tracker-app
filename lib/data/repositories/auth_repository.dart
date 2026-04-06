@@ -34,35 +34,14 @@ class AuthRepository {
         'business_name': businessName,
       },
     );
-    if (response.user != null) {
-      await _createProfile(
-        userId: response.user!.id,
-        email: email,
-        fullName: fullName,
-        businessName: businessName,
-      );
-    }
+    
+    // Note: Profile creation is now handled automatically on the database
+    // side via a Postgres Trigger on auth.users.
+    
     return response;
   }
 
   Future<void> signOut() => _client.auth.signOut();
-
-  Future<void> _createProfile({
-    required String userId,
-    required String email,
-    required String fullName,
-    String? businessName,
-  }) async {
-    await _client.from('profiles').upsert({
-      'id': userId,
-      'email': email,
-      'full_name': fullName,
-      'business_name': businessName,
-      'currency': 'USD',
-      'timezone': 'UTC',
-      'updated_at': DateTime.now().toIso8601String(),
-    });
-  }
 
   Future<void> updateProfile(Profile profile) async {
     await _client.from('profiles').update(profile.toJson()).eq('id', profile.id);
