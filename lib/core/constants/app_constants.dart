@@ -7,11 +7,11 @@ class AppConstants {
   // Supabase — fill in your own project credentials
   static const supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',
-    defaultValue: 'https://YOUR_PROJECT.supabase.co',
+    defaultValue: 'https://rfqcydqhadtmvjlwowil.supabase.co',
   );
   static const supabaseAnonKey = String.fromEnvironment(
     'SUPABASE_ANON_KEY',
-    defaultValue: 'YOUR_ANON_KEY',
+    defaultValue: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmcWN5ZHFoYWR0bXZqbHdvd2lsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NjE0ODQsImV4cCI6MjA5MTAzNzQ4NH0.dxN9Qm3KaE_0NV8LW56YEvaG0cqvirqVvHNS4qAqxpM',
   );
 
   // Pagination
